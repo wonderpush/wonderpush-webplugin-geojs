@@ -1,7 +1,7 @@
 {
   "name": "wonderpush-webplugin-geojs",
   "version": "1.1.1",
-  "description": "WonderPush Web SDK plugin to present the user an opt-in bell before prompting her for push permission.",
+  "description": "WonderPush Web SDK plugin for GeoJS lets you send GeoJS city, country and country codes as WonderPush Properties.",
   "main": "src/geojs.js",
   "repository": {
     "type": "git",
