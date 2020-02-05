@@ -79,10 +79,9 @@
             .then(function (result) {
               var lastFetchDate = result ? result.lastFetchDate : undefined;
               var geoLocation = result ? result.geoLocation : undefined;
-              let now = +new Date();
+              var now = +new Date();
               var cacheExpired = !lastFetchDate || now - lastFetchDate > cacheDuration;
-              var geoLocationPromise = cacheExpired || !geoLocation
-                ? WonderPushSDK.Storage.set({lastFetchDate: now})
+              var geoLocationPromise = (cacheExpired || !geoLocation) ? WonderPushSDK.Storage.set({lastFetchDate: now})
                   .then(fetchGeolocation)
                   .then(function (geoLocation) {
                     return WonderPushSDK.Storage.set({geoLocation: geoLocation})
@@ -112,10 +111,9 @@
 
       // Handle subscription state changes
       window.addEventListener('WonderPushEvent', function (event) {
-        if (!event.detail
-          || !event.detail.state
-          || event.detail.name !== 'subscription'
-          || event.detail.state !== WonderPushSDK.SubscriptionState.SUBSCRIBED) return;
+        if (!event.detail || !event.detail.state || event.detail.name !== 'subscription' || event.detail.state !== WonderPushSDK.SubscriptionState.SUBSCRIBED) {
+          return;
+        }
         updateGeolocation();
       });
 
