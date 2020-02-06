@@ -60,12 +60,14 @@
         var country = geoLocation ? geoLocation.country || null : null;
         var country_code3 = geoLocation ? geoLocation.country_code3 || null : null;
         var country_code = geoLocation ? geoLocation.country_code || null : null;
+        var region = geoLocation ? geoLocation.region || null : null;
         window.WonderPush.push(function () {
           var properties = {
             string_city: city,
             string_country: country,
             string_country_code3: country_code3,
             string_country_code: country_code,
+            string_region: region,
           };
           window.WonderPush.putProperties(properties);
         });
