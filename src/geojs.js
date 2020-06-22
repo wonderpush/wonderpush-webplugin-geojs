@@ -111,17 +111,7 @@
         }
       };
 
-      // Handle subscription state changes
-      window.addEventListener('WonderPushEvent', function (event) {
-        if (!event.detail || !event.detail.state || event.detail.name !== 'subscription' || event.detail.state !== WonderPushSDK.SubscriptionState.SUBSCRIBED) {
-          return;
-        }
-        updateGeolocation();
-      });
-
-      if (WonderPushSDK.Notification.getSubscriptionState() === WonderPushSDK.SubscriptionState.SUBSCRIBED) {
-        updateGeolocation();
-      }
+      updateGeolocation();
     }
   });
 })();
